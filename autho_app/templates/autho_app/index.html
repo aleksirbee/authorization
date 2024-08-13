@@ -1,18 +1,18 @@
-<h1> Вэлком бэк!</h1>
+<h1> Welcome back!</h1>
 
 {% extends "autho_app/base.html" %}
 
 {% block content %}
 <div class="login">
     <input type="text"
-    placeholder="Введи логин" required><br>
+    placeholder="Login" required><br>
     
     <input type="text"
-    placeholder="Введи пароль" required><br>
+    placeholder="Password" required><br>
 
     <button type="submit"
-    onclick="solve()">Войти</button><br>
+    onclick="solve()">Login</button><br>
 
-    <a href="#" style="text-decoration: none; color: #fff;"> У меня еще нет аккаунта</a>
+    <a href="registration.html" style="text-decoration: none; color: #fff;">Create account</a>
 </div>
 {% endblock content %}

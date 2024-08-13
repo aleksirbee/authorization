@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from .models import Topic
 
 def index(request):
@@ -9,5 +8,5 @@ def index(request):
 
 def topics(request):
     topics = Topic.objects.order_by('date_added')
-    context = {'topics': topics}
+    context = {'registration': topics}
     return render(request, 'autho_app/registration.html', context)
