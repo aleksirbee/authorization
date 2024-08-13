@@ -10,3 +10,7 @@ def topics(request):
     topics = Topic.objects.order_by('date_added')
     context = {'registration': topics}
     return render(request, 'autho_app/registration.html', context)
+
+
+def authentication(request):
+    return render(request, 'autho_app/authentication.html')

@@ -6,5 +6,6 @@ from . import views
 urlpatterns = [
     # Home page
     path('', views.index, name='index'),
-    path('registration/', views.topics, name='registration')
+    path('registration/', views.topics, name='registration'),
+    path('authentication/', views.authentication, name='authentication'),
 ]

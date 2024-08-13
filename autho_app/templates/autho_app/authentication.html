@@ -1,0 +1,17 @@
+{% extends "autho_app/base.html" %}
+
+{% block content %}
+
+<h1>Registration</h1>
+
+<h2>Enter the 4-digit code sent to "example email"</h2>
+
+<div class="pinBox">
+    <input type="text" maxlength="4">
+</div>
+
+<p>место для сообщения о неверном коде</p>
+
+<button>Send code again</button>
+<button>Submit</button>
+{% endblock content %}

@@ -2,14 +2,26 @@
 
 {% block content %}
 
-<p>Registration</p>
+<h1>Registration</h1>
 
-<ul>
-    {% for topic in topics %}
-        <li>{{ topic }}</li>
-    {% empty %}
-        <li>No topics have been added yet.</li>
-    {% endfor %}
-</ul>
+<div class="login">
+    <input type="text"
+    placeholder="Your email" required><br>
+    
+    <input type="text"
+    placeholder="Create username" required><br>
+
+    <input type="text"
+    placeholder="Create a password" required><br>
+
+    <input type="text"
+    placeholder="Repeat password" required><br>
+
+    <button type="submit"
+    onclick="solve()">Next</button><br>
+
+    <a href="{% url 'autho_app:index' %}" style="text-decoration: none; color: #fff;">Go back</a>
+
+</div>
 
 {% endblock content %}
