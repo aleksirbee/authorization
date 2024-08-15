@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # My apps
     'autho_app',
-    # 'accounts',
+    'accounts',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,6 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+# my settings
+LOGIN_REDIRECT_URL = 'autho_app:index'
+LOGOUT_REDIRECT_URL = 'autho_app:index'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
