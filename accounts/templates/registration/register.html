@@ -5,9 +5,43 @@
 
 <form action="{% url 'accounts:register' %}" method="post">
     {% csrf_token %}
-    {{ form.as_div}}
+    <!-- {{ form.as_div }} -->
 
-    <button name="sumbit">Register</button>
+    {{ form.email.label }}
+    {{ form.email }}<br>
+
+    {{ form.username.label }}
+    {{ form.username }}<br>
+
+    {{ form.password1.label }}
+    {{ form.password1 }}<br>
+
+    <ul id="password-requirements">
+        <li id="length" class="requirement">От 8 до 15 символов</li>
+        <li id="uppercase" class="requirement">Строчные и прописные буквы</li>
+        <li id="number" class="requirement">Минимум 1 цифра</li>
+        <li id="special" class="requirement">Минимум 1 спец. символ (!, ", #, $...)</li>
+    </ul>
+
+    {{ form.password2.label }}
+    {{ form.password2 }}<br>
+
+    <button name="sumbit">Next</button>
+    <a href="{% url 'autho_app:index' %}" style="text-decoration: none; color: #fff;">Go back</a>
 </form>
+
+
+    {% if form.errors %}
+        <ul>
+        {% for field in form %}
+            {% for error in field.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
 
 {% endblock content %}
