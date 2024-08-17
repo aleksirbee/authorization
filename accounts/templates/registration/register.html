@@ -1,7 +1,8 @@
+
 {% extends 'autho_app/base.html' %}
 
-{% block content %}
 
+{% block content %}
 
 <form action="{% url 'accounts:register' %}" method="post">
     {% csrf_token %}
@@ -17,31 +18,30 @@
     {{ form.password1 }}<br>
 
     <ul id="password-requirements">
-        <li id="length" class="requirement">От 8 до 15 символов</li>
-        <li id="uppercase" class="requirement">Строчные и прописные буквы</li>
-        <li id="number" class="requirement">Минимум 1 цифра</li>
-        <li id="special" class="requirement">Минимум 1 спец. символ (!, ", #, $...)</li>
+        <li id="length" class="requirement">From 8 to 15 characters</li>
+        <li id="uppercase" class="requirement">Lower and upper case letters</li>
+        <li id="number" class="requirement">At least 1 number</li>
+        <li id="special" class="requirement">At least 1 special character (!, ", #, $...)</li>
     </ul>
 
     {{ form.password2.label }}
-    {{ form.password2 }}<br>
+    {{ form.password2 }}<br><br>
 
-    <button name="sumbit">Next</button>
     <a href="{% url 'autho_app:index' %}" style="text-decoration: none; color: #fff;">Go back</a>
+    <button name="sumbit">Next</button>
 </form>
 
-
-    {% if form.errors %}
-        <ul>
-        {% for field in form %}
-            {% for error in field.errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-        {% endfor %}
-        {% for error in form.non_field_errors %}
-            <li>{{ error }}</li>
-        {% endfor %}
-        </ul>
-    {% endif %}
+{% if form.errors %}
+<ul>
+{% for field in form %}
+    {% for error in field.errors %}
+    <li style="color: red;">{{ error }}</li>
+    {% endfor %}
+{% endfor %}
+{% for error in form.non_field_errors %}
+    <li style="color: red;">{{ error }}</li>
+{% endfor %}
+</ul>
+{% endif %}
 
 {% endblock content %}

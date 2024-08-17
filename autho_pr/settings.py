@@ -47,6 +47,16 @@ INSTALLED_APPS = [
 LOGIN_REDIRECT_URL = 'autho_app:index'
 LOGOUT_REDIRECT_URL = 'autho_app:index'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USER_SSL = False
+EMAIL_HOST_USER = 'alserikbolov@mail.ru'
+EMAIL_HOST_PASSWORD = 'SRFkzzrACuSStnUbDxvG'
+DEFAULT_FROM_EMAIL = 'alserikbolov@mail.ru' 
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
