@@ -44,4 +44,10 @@
 </ul>
 {% endif %}
 
+
+<!-- Email error message  -->
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
 {% endblock content %}
