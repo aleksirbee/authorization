@@ -4,7 +4,7 @@
 <form method="post">
     {% csrf_token %}
     <label for="code">Enter confiramtion code</label>
-    <input type="text" name="code" id="code" required>
+    <input type="text" name="code" id="code" maxlength="4" required>
     <button type="submit">Submit</button>
 </form>
 

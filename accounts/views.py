@@ -6,6 +6,9 @@ from .forms import CreateUserForm
 from django.core.mail import send_mail, BadHeaderError
 from .models import Profile
 
+# REST framework
+from rest_framework import generics
+from .serializers import ProfileSerializer
 
 
 def register(request):
@@ -69,3 +72,13 @@ def confirm_email(request):
             return render(request, 'registration/confirm_email.html', {'error': error})
         
     return render(request, 'registration/confirm_email.html')
+
+
+# REST Framework
+class ProfileList(generics.ListCreateAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
