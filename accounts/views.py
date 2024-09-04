@@ -23,7 +23,7 @@ def register(request):
 
                 send_mail( # Sending message with the code
                     "Hi! It's Alikhan.",
-                    f'Here is your confirmation code: {profile.confirmation_code}',
+                    f'Here is your code to continue registration: {profile.confirmation_code}',
                     'alserikbolov@mail.ru',
                     [user.email],
                     fail_silently=False,
@@ -48,11 +48,6 @@ def register(request):
     return render(request, 'registration/register.html', {'form':form})
 
 
-"""
-Processing verification code
-The code from the form is checked, if it exists and matches, 
-the profile is confirmed and the user is redirected to the main page.
-If the code is incorrect, the user is shown an error"""
 
 def confirm_email(request):
     if request.method == 'POST':

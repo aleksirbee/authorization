@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'autho_app',
     'accounts',
     'rest_framework',
+    'django_bootstrap5',
 
     'django.contrib.admin',
     'django.contrib.auth',

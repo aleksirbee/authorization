@@ -1,17 +1,18 @@
 {% extends 'autho_app/base.html' %}
+{% load django_bootstrap5 %}
+
 
 {% block content %}
 
-{% if form.errors %}
-    <p>Username or password is incorrect. Please try again.</p>
-{% endif %}
+<center>
+<h2>Log in to your account</h2>
 
-<form action="{% url 'accounts:login' %}" method="post">
+<form class="loginform" action="{% url 'accounts:login' %}" method="post">
     {% csrf_token %}
-    {{ form.as_div}}
-
-    <button name="sumbit">Log in</button>
+    {% bootstrap_form form %}
+    
+    <button class="button5" style="margin-top: 10px; padding: 12px 70px;">Next</button>
 </form>
-
-
+</center>
+    
 {% endblock content %}

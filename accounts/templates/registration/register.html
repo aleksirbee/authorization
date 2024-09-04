@@ -4,18 +4,20 @@
 
 {% block content %}
 
+<div class="container">
 <form action="{% url 'accounts:register' %}" method="post">
+    <h2>Create your account</h2>
     {% csrf_token %}
-    <!-- {{ form.as_div }} -->
-
+<center>
+    <div class="form-group">
     {{ form.email.label }}
-    {{ form.email }}<br>
-
+    {{ form.email }}</div>
+    <div class="form-group">
     {{ form.username.label }}
-    {{ form.username }}<br>
-
+    {{ form.username }}</div>
+    <div class="form-group">
     {{ form.password1.label }}
-    {{ form.password1 }}<br>
+    {{ form.password1 }}</div>
 
     <ul id="password-requirements">
         <li id="length" class="requirement">From 8 to 15 characters</li>
@@ -24,12 +26,16 @@
         <li id="special" class="requirement">At least 1 special character (!, ", #, $...)</li>
     </ul>
 
+    <div class="form-group">
     {{ form.password2.label }}
-    {{ form.password2 }}<br><br>
+    {{ form.password2 }}</div>
 
-    <a href="{% url 'autho_app:index' %}" style="text-decoration: none; color: #fff;">Go back</a>
-    <button name="sumbit">Next</button>
+    <a href="{% url 'autho_app:index' %}">Go back</a>
+    <!-- <button class="button5" style="margin-top: 1%; padding: 12px 60px;">Go back</button> -->
+    <button class="button5" name="sumbit" style="margin-top: 1%; padding: 12px 70px;">Next</button>
+</center>
 </form>
+</div>
 
 {% if form.errors %}
 <ul>
