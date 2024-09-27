@@ -3,7 +3,7 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-    <h1 class="display-1" style="text-align:center; margin-top: 10%;"> Welcome back, {{ user.username }}!</h1>
+    <h1 style="text-align:center; margin-top: 10%; font-size: 80px;"> Welcome back, {{ user.username }}!</h1>
 {% else %}
     <!-- Tittle -->
     <h1 class="style" style="text-align:center; padding-top: 10%; font-size: 80px;">Welcome to my Django pet project</h1>

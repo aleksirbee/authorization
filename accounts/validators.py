@@ -26,7 +26,7 @@ class CustomPasswordValidator:
             )
         if not re.search(r'[!@#$%^&*()<>?,./:;{}|]', password):
             raise ValidationError(
-                _("The password must contain at least one special character.", password),
+                ("The password must contain at least one special character."),
             code="password_no_special",
             )
         

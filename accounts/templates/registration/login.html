@@ -1,18 +1,29 @@
 {% extends 'autho_app/base.html' %}
-{% load django_bootstrap5 %}
-
 
 {% block content %}
 
-<center>
-<h2>Log in to your account</h2>
-
-<form class="loginform" action="{% url 'accounts:login' %}" method="post">
+<div class="container">
+<form action="{% url 'accounts:login' %}" method="post">
+    
+    <h2>Log in to your account</h2>
     {% csrf_token %}
-    {% bootstrap_form form %}
     
-    <button class="button5" style="margin-top: 10px; padding: 12px 70px;">Next</button>
+    <div class="form-group">
+        {{ form.username.label_tag }}  <!-- Рендерим label -->
+        {{ form.username }}  <!-- Рендерим поле username -->
+    </div>
+
+    <div class="form-group">
+        {{ form.password.label_tag }}
+        {{ form.password }}
+    </div>
+    
+        
+    <div style="margin-top: 15px;">
+        <a href="{% url 'autho_app:index' %}" class="button5" style="margin-top: 1%; padding: 12px 60px;">Go back</a>
+        <button class="button5" name="submit" style="margin-top: 1%; padding: 12px 72px;">Next</button>
+    </div>
 </form>
-</center>
-    
+</div>
+
 {% endblock content %}

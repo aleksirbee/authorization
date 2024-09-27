@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
 
-from .forms import CreateUserForm
+from django.contrib.auth.views import LoginView
+from django.contrib.auth import views as auth_views
+from .forms import CreateUserForm, CustomLoginForm
 from django.core.mail import send_mail, BadHeaderError
 from .models import Profile
 
@@ -67,6 +68,11 @@ def confirm_email(request):
             return render(request, 'registration/confirm_email.html', {'error': error})
         
     return render(request, 'registration/confirm_email.html')
+
+
+class CustomLoginView(auth_views.LoginView):
+    form_class = CustomLoginForm
+    template_name = 'registration/login.html'
 
 
 # REST Framework
